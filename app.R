@@ -25,15 +25,13 @@ load('data/landing.RData')
 ### load main page supplement data
 load("data/main_sum_supp.RData")
 
-# Save the dataframe to a CSV file
-##samples_month_country <- read.csv2('data/samples_month_country_utf8.csv', sep = ',',encoding = "UTF-8")
 
 choice1 = c("Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", 
             "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bahrein", "Baja California", "Bangladesh", 
             "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bonaire", "Bosnia and Herzegovina", 
             "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", 
             "Canary Islands", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Costa Rica", "Croatia", "Cuba", 
-            "Curacao", "Cyprus", "Czech Republic", "Côte d'Ivoire", "C�te d'Ivoire", "D.R.C., Denmark", "Djibouti", "Dominican Republic", 
+            "Curacao", "Cyprus", "Czech Republic", "Côte d'Ivoire", "D.R.C., Denmark", "Djibouti", "Dominican Republic", 
             "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", 
             "French Guiana", "French Polynesia", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Guadeloupe", 
             "Guam", "Guatemala", "Guinea", "Guinea Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", 
@@ -43,7 +41,7 @@ choice1 = c("Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua a
             "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nepal", "Netherlands", 
             "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", 
             "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Republic of the Congo", 
-            "Romania", "Russia", "Rwanda", "Saint Barthélemy", "Saint Barth�lemy", "Saint Lucia", "Saint Martin", "Saint Vincent and the Grenadines", 
+            "Romania", "Russia", "Rwanda", "Saint Barthélemy", "Saint Lucia", "Saint Martin", "Saint Vincent and the Grenadines", 
             "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Sint Maarten", "Slovakia", 
             "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", 
             "Sweden", "Switzerland", "Syria", "Taiwan", "Thailand", "The Netherlands", "Timor-Leste", "Togo", "Trinidad and Tobago", "Tunisia", 
