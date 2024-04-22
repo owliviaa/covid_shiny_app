@@ -25,6 +25,8 @@ load('data/landing.RData')
 ### load main page supplement data
 load("data/main_sum_supp.RData")
 
+# Save the dataframe to a CSV file
+##samples_month_country <- read.csv2('data/samples_month_country_utf8.csv', sep = ',',encoding = "UTF-8")
 
 choice1 = c("Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", 
             "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bahrein", "Baja California", "Bangladesh", 
@@ -125,6 +127,7 @@ ui <- fluidPage(
                         DT::dataTableOutput("main_sum_table2") %>% withSpinner(color="#4169e1", type = 4),
                         h4(p("For instance, if we search Australia then we can find out that from the table there is a peak at 
                              2020-03 and 2020-07, which fit the overall situation at the global level.")),
+                        plotOutput("dot_plot") %>% withSpinner(color="#4169e1", type = 4),
                         h3(p("Conclusion:")),
                         h4(p("In conclusion, this app provides a comprehensive overview of the global distribution and analysis of 
                              COVID-19 samples. Through interactive visualizations and data exploration tools, users gain insights into 
@@ -144,7 +147,7 @@ ui <- fluidPage(
 
   navbarMenu("More", icon = icon("info-circle"),
 
-               tabPanel("About", fluid = TRUE,
+               tabPanel("About (GitHub link here)", fluid = TRUE,
                fluidRow(
                column(6,
                       #br(),
@@ -161,10 +164,8 @@ ui <- fluidPage(
                column(6,
                       #br(),
                       h4(p("About the Author")),
-                      h5(p("Olivia Zhang"),
-                      h5(p("Code avail at GitHub at ")
-
-                      ),
+                      h5(p("Olivia Zhang")),
+                      HTML("Click <a href='https://github.com/owliviaa/covid_shiny_app/blob/main/app.R'>here</a> to visit the GitHub Code Page."),
           br()
                           )
           ),
@@ -260,6 +261,21 @@ server <- function(input, output, session) {
     dat <- samples_month_country %>% filter(Country == input$filter)
     dat
   }, options = list(scrollX = TRUE,searching = FALSE))
+  
+  ## Main info
+  output$dot_plot <- renderPlot({
+    dat <- samples_month_country %>% filter(Country == input$filter)
+    
+    # Convert the data from wide to long format
+    dat_long <- pivot_longer(dat, cols = -Country, names_to = "Month", values_to = "Count")
+    
+    # Create a dot plot using ggplot2
+    ggplot(dat_long, aes(x = Month, y = Count, color = "red")) +
+      geom_point() +
+      labs(title = paste("Dot Plot of Sample Counts for", input$filter),
+           x = "Month",
+           y = "Sample Count")
+  })
   
 }
 # Run the application
